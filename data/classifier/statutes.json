@@ -1,0 +1,37 @@
+{
+  "_comment": "DRAFT statute tables. MUST be verified and signed off by the legal team before go-live (design: 'IPC <-> BNS mapping table ... must be verified by the legal team'). Keys are 'ACT SECTION' after normalisation (upper case, no hyphens).",
+  "bns_effective_from": "2024-07-01",
+  "ipc_bns": [
+    ["IPC 302", "BNS 103"], ["IPC 304B", "BNS 80"], ["IPC 307", "BNS 109"], ["IPC 323", "BNS 115(2)"],
+    ["IPC 376", "BNS 64"], ["IPC 379", "BNS 303(2)"], ["IPC 406", "BNS 316(2)"], ["IPC 420", "BNS 318(4)"],
+    ["IPC 467", "BNS 338"], ["IPC 468", "BNS 336(3)"], ["IPC 471", "BNS 340(2)"], ["IPC 498A", "BNS 85"],
+    ["IPC 506", "BNS 351(2)"], ["IPC 120B", "BNS 61(2)"], ["IPC 354", "BNS 74"], ["IPC 304A", "BNS 106(1)"],
+    ["CrPC 437", "BNSS 480"], ["CrPC 439", "BNSS 483"], ["CrPC 438", "BNSS 482"], ["CrPC 125", "BNSS 144"],
+    ["CrPC 156(3)", "BNSS 175(3)"], ["CrPC 482", "BNSS 528"]
+  ],
+  "section_to_type": {
+    "IPC 302": ["criminal", "murder"], "IPC 304B": ["criminal", "dowry_cruelty"], "IPC 307": ["criminal", "assault"],
+    "IPC 323": ["criminal", "assault"], "IPC 324": ["criminal", "assault"], "IPC 325": ["criminal", "assault"],
+    "IPC 354": ["criminal", "assault"], "IPC 376": ["criminal", "assault"],
+    "IPC 379": ["criminal", "theft"], "IPC 380": ["criminal", "theft"], "IPC 392": ["criminal", "theft"],
+    "IPC 406": ["criminal", "cheating_fraud"], "IPC 420": ["criminal", "cheating_fraud"],
+    "IPC 467": ["criminal", "cheating_fraud"], "IPC 468": ["criminal", "cheating_fraud"],
+    "IPC 471": ["criminal", "cheating_fraud"], "IPC 498A": ["criminal", "dowry_cruelty"],
+    "DP 3": ["criminal", "dowry_cruelty"], "DP 4": ["criminal", "dowry_cruelty"],
+    "NI 138": ["criminal", "cheque_bounce"],
+    "IT 66": ["criminal", "cyber_crime"], "IT 66C": ["criminal", "cyber_crime"], "IT 66D": ["criminal", "cyber_crime"],
+    "CrPC 437": ["criminal", "bail"], "CrPC 439": ["criminal", "bail"], "CrPC 438": ["criminal", "anticipatory_bail"],
+    "CrPC 125": ["family", "maintenance"],
+    "HMA 9": ["family", "divorce"], "HMA 13": ["family", "divorce"], "HMA 13B": ["family", "divorce"],
+    "HMA 24": ["family", "maintenance"], "HMA 26": ["family", "custody"],
+    "DV 12": ["family", "domestic_violence"], "DV 18": ["family", "domestic_violence"],
+    "DV 19": ["family", "domestic_violence"], "DV 20": ["family", "domestic_violence"],
+    "CPA 35": ["consumer", "deficiency_of_service"]
+  },
+  "act_to_type": {
+    "NDPS": ["criminal", "ndps"], "POCSO": ["criminal", "assault"], "DV": ["family", "domestic_violence"],
+    "DP": ["criminal", "dowry_cruelty"], "IT": ["criminal", "cyber_crime"], "NI": ["criminal", "cheque_bounce"],
+    "HMA": ["family", "divorce"], "CPA": ["consumer", "deficiency_of_service"], "Arms": ["criminal", null],
+    "SCST": ["criminal", null]
+  }
+}

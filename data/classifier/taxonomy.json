@@ -1,0 +1,71 @@
+{
+  "_comment": "Two-level case-type taxonomy, owned by the legal team (design: Case-type classification). Keyword lists drive the Tier-1 keyword rules; they are a cold-start seed to be extended by the legal team.",
+  "types": {
+    "criminal": {
+      "bail": ["bail", "jamanat", "जमानत", "arrested", "in jail", "judicial custody", "giraftar", "गिरफ्तार"],
+      "anticipatory_bail": ["anticipatory bail", "agrim jamanat", "अग्रिम जमानत", "fear of arrest"],
+      "cheating_fraud": ["cheating", "fraud", "dhokha", "धोखा", "forged", "forgery", "जालसाजी", "duped"],
+      "theft": ["theft", "stolen", "chori", "चोरी", "robbery", "snatched", "loot"],
+      "assault": ["assault", "beaten", "maarpeet", "मारपीट", "attacked", "injured", "molest"],
+      "murder": ["murder", "killed", "hatya", "हत्या", "homicide"],
+      "cyber_crime": ["cyber", "online fraud", "upi fraud", "hacked", "otp", "phishing", "sextortion"],
+      "ndps": ["ndps", "drugs", "narcotic", "ganja", "charas", "smack", "heroin"],
+      "dowry_cruelty": ["dowry", "dahej", "दहेज", "498a", "cruelty by husband", "in-laws harass"],
+      "cheque_bounce": ["cheque bounce", "cheque bounced", "dishonour of cheque", "138 ni", "chek bounce"]
+    },
+    "civil": {
+      "recovery_of_money": ["recovery of money", "money not returned", "loan not repaid", "recovery suit", "paisa wapas"],
+      "contract": ["breach of contract", "agreement breach", "contract dispute"],
+      "injunction": ["injunction", "stay order", "restrain", "stay lagwana"],
+      "specific_performance": ["specific performance", "agreement to sell", "registry not done"],
+      "defamation": ["defamation", "maanhani", "मानहानि", "false allegations in public"]
+    },
+    "property": {
+      "title_dispute": ["title dispute", "ownership dispute", "property dispute", "zameen ka vivad", "जमीन विवाद"],
+      "partition": ["partition", "batwara", "बंटवारा", "share in ancestral property"],
+      "mutation": ["mutation", "dakhil kharij", "दाखिल खारिज", "naam chadhana", "khatauni name"],
+      "encroachment": ["encroachment", "kabza", "कब्जा", "illegal possession", "occupied my land"],
+      "tenancy": ["tenant", "kirayedar", "किरायेदार", "eviction", "rent not paid", "landlord"],
+      "land_acquisition": ["land acquisition", "compensation for land", "bhumi adhigrahan"]
+    },
+    "family": {
+      "divorce": ["divorce", "talaq", "तलाक", "separation", "13b", "mutual consent"],
+      "maintenance": ["maintenance", "guzara bhatta", "गुजारा भत्ता", "alimony", "kharcha"],
+      "custody": ["custody of child", "child custody", "bachche ki custody", "guardianship"],
+      "domestic_violence": ["domestic violence", "gharelu hinsa", "घरेलू हिंसा", "dv act"],
+      "succession": ["succession", "will", "inheritance", "virasat", "वसीयत", "succession certificate"]
+    },
+    "consumer": {
+      "deficiency_of_service": ["deficiency in service", "service not provided", "consumer complaint", "refund not given"],
+      "defective_goods": ["defective", "faulty product", "kharab saman", "manufacturing defect"],
+      "builder_delay": ["builder", "possession delayed", "flat not delivered", "rera"],
+      "insurance_claim": ["insurance claim", "claim rejected", "policy claim", "bima"]
+    },
+    "labour": {
+      "wrongful_termination": ["terminated", "wrongful termination", "fired from job", "naukri se nikala"],
+      "wages": ["salary not paid", "wages", "tankhwah", "तनख्वाह", "unpaid salary"],
+      "pf_gratuity": ["provident fund", "pf", "gratuity", "epf"],
+      "service_matter": ["service matter", "promotion", "transfer order", "seniority", "departmental inquiry"]
+    },
+    "constitutional": {
+      "writ": ["writ", "mandamus", "habeas corpus", "certiorari", "government order challenge"],
+      "pil": ["public interest litigation", "pil", "janhit yachika"]
+    },
+    "corporate": {
+      "company": ["company law", "shareholder", "director dispute", "oppression and mismanagement"],
+      "insolvency": ["insolvency", "ibc", "nclt", "bankruptcy"],
+      "gst": ["gst", "gst notice", "input tax credit"],
+      "income_tax": ["income tax", "itr notice", "tax assessment", "aaykar"]
+    }
+  },
+  "case_number_prefix": {
+    "CRLA": ["criminal", null], "CRLREV": ["criminal", null], "CRLMC": ["criminal", null], "ST": ["criminal", null],
+    "BAILAPPLN": ["criminal", "bail"], "BAILAPPL": ["criminal", "bail"], "BAILAPP": ["criminal", "bail"],
+    "OS": ["civil", null], "CS": ["civil", null], "CS(OS)": ["civil", null], "CS(COMM)": ["corporate", "company"],
+    "HMA": ["family", null], "CC": ["consumer", null], "WP": ["constitutional", "writ"], "WP(C)": ["constitutional", "writ"],
+    "WP(CRL)": ["constitutional", "writ"], "MACT": ["civil", null], "RCA": ["civil", null], "EXECUTION": ["civil", null]
+  },
+  "doc_type_to_top": {
+    "fir": "criminal", "revenue_record": "property"
+  }
+}

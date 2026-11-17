@@ -1,0 +1,20 @@
+# requirements.txt
+# Runtime and test dependencies for CaseWay v1.
+# Every package here runs fully offline once installed (no telemetry, no cloud calls).
+# For an air-gapped install, mirror these wheels into an internal package index first.
+
+PyYAML==6.0.3          # reads config/settings.yaml
+cryptography==50.0.2   # AES-256-GCM envelope encryption + X25519 sealed upload boxes
+fastapi==0.163.1       # HTTP API (intake, review console, partner queue)
+uvicorn==0.54.0        # local ASGI server for the API
+python-multipart==0.0.34  # file uploads in the API
+pypdf==7.1.0           # born-digital PDF text layer (skips OCR when text exists)
+
+# Test-only
+pytest==9.2.0
+httpx==0.28.1          # used by FastAPI's TestClient
+
+# Optional, not installed by default (the code detects them and falls back safely):
+#   pytesseract + Tesseract 5 binary with hin+eng packs  -> real OCR engine
+#   paddleocr                                            -> second OCR engine for ROVER voting
+#   ortools                                              -> faster min-cost flow for large batches

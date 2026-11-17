@@ -1,0 +1,68 @@
+# config/settings.yaml
+# The single runtime configuration file for CaseWay. It is read once at startup,
+# so any change here takes effect after a service restart, with no code change.
+# Point CASEWAY_CONFIG at another file to override it (e.g. per deployment).
+
+matching:
+  # Partner review switch (design: "Partner review switch, off at launch").
+  #   false (default): customers see the top 3 lawyers straight away and their
+  #                    pick assigns the case.
+  #   true:            every match waits in a partner queue first; the partner
+  #                    accepts or overrides with a reason, then the customer sees it.
+  # Conflict hits, urgent bail matters and low-score / close-call matches ALWAYS
+  # stop for a named reviewer below, whatever this switch says.
+  partner_review: false
+  conflict_reviewers: [senior_lawyer, admin]
+
+  mode: realtime            # realtime = priority-queue greedy; batch = min-cost flow
+  top_n: 3                  # top pick + 2 alternates
+  min_score: 0.45           # below this the best match is a "low score" -> senior review
+  close_call_margin: 0.02   # top1 - top2 below this is a "close call" -> senior review
+  conflict_threshold: 0.90  # name similarity that counts as a conflict-of-interest hit
+  rotation_bonus: 0.02      # small fairness tie-breaker for whoever waited longest
+  urgent_subtypes: [bail, anticipatory_bail]
+  urgent_max_hours: 24
+
+  # Default weights set by senior lawyers (design: Step 2 weighted score).
+  weights:
+    spec: 0.30
+    court: 0.20
+    exp: 0.15
+    lang: 0.10
+    prox: 0.10
+    fee: 0.05
+    load: 0.10
+
+fusion:
+  auto_accept: 0.95         # >= : field auto-accepted
+  provisional: 0.75         # >= : accepted, highlighted for one-click confirm; below -> review
+  disagreement_penalty: 0.5 # share of the strongest conflicting value subtracted
+  # How much each evidence source is trusted (design: Accuracy strategy table).
+  source_weights:
+    born_digital: 1.0
+    cnr_lookup: 1.0
+    doc_header_label: 0.9
+    doc_label: 0.85
+    ocr_high_conf: 0.75
+    gazetteer_scan: 0.7
+    chat: 0.6
+    inferred: 0.5
+
+fuzzy:
+  accept_score: 0.92        # accept top fuzzy candidate only at or above this...
+  accept_gap: 0.05          # ...and only if it beats the runner-up by this much
+  trigram_min_overlap: 0.4
+  bk_max_distance: 2
+
+classifier:
+  multi_label_threshold: 0.30
+  bm25_k: 20
+
+ingest:
+  max_file_mb: 25
+  max_pages_per_case: 200
+  allow_plain_text: true    # dev/test convenience: accept .txt "documents" without OCR
+
+paths:
+  data_dir: data
+  var_dir: var              # SQLite DB, encrypted objects, audit log, local dev keys
